@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/app
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+    user: ubuntu
+    networks:
+      - local-dev
+networks:
+  local-dev:
+    driver: bridge

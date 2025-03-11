@@ -1,0 +1,36 @@
+{
+  "name": "Java Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": true,
+      "installGradle": true
+    }
+  },
+  "mounts": [
+    "source=/home/madpad/.gitconfig-maf,target=/home/ubuntu/.gitconfig,type=bind,consistency=cached",
+    "source=/home/madpad/.ssh/id_ed25519,target=/home/ubuntu/.ssh/id_ed25519,type=bind,consistency=cached"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true
+      },
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-java-dependency",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-gradle",
+        "Pivotal.vscode-spring-boot",
+        "esbenp.prettier-vscode",
+        "shengchen.vscode-checkstyle",
+        "eamodio.gitlens",
+        "sourcegraph.cody-ai"
+      ]
+    }
+  },
+  "postCreateCommand": "mvn --version"
+}
